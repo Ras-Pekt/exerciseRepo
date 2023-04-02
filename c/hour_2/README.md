@@ -7,19 +7,23 @@ This directory contains solutions to the coding questions of **Hour 2, Writing Y
 	`Howdy, neighbor!
 	This is my first C program.`
 - [Exer_4](hr2ex4.c) - What warning or error messages, if any, will you get when you’re compiling the following program?
-	`#include <stdlib.h>
+	```
+	#include <stdlib.h>
 	#include <stdio.h>
 	main()
 	{
 		printf (“Howdy, neighbor! This is my first C program.\n”);
 		exit(0);
-	}`
+	}
+	```
 - [Exer_5](hr2ex5.c) - What error messages will you get for the following program when you’re trying to
 compile it?
 	void main()
-	`{
+	```
+	{
 		printf (“Howdy, neighbor! This is my first C program.\n”);
 		return 0;
-	}`
+	}
+	```
 	
 ** DISCLAIMER: Some of the code is intentionally wrong, to find out common coding mistakes, learn to interpret error messages and practice debugging code from such error messages **
