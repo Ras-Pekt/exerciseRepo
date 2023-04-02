@@ -28,4 +28,4 @@ compile it?
 	}
 	```
 	
-**DISCLAIMER: Some of the code is intentionally wrong, to find out common coding mistakes, learn to interpret error messages and practice debugging code from such error messages**
+**NOTE: Some of the code is intentionally wrong, to find out common coding mistakes, learn to interpret error messages and practice debugging code from such error messages**
