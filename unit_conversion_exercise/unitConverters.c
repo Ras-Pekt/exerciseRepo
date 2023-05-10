@@ -7,6 +7,11 @@
  */
 double _cel2fahr(double temp)
 {
+	if (temp < -274)
+	{
+		printf("Temperature cannot be below absolute zero!\n");
+		return (-1);
+	}
 	return ((temp * 1.8) + 32);
 }
 /**
@@ -16,6 +21,11 @@ double _cel2fahr(double temp)
  */
 double _fahr2cel(double temp)
 {
+	if (temp < -460)
+	{
+		printf("Temperature cannot be below absolute zero!\n");
+		return (-1);
+	}
 	return ((temp - 32) * 0.5556);
 }
 /**
@@ -25,6 +35,11 @@ double _fahr2cel(double temp)
  */
 double _inch2cm(double dist)
 {
+	if (dist < 0)
+	{
+		printf("Distance cannot be negative!\n");
+		return (-1);
+	}
 	return (dist * 0.3937);
 }
 /**
@@ -34,6 +49,11 @@ double _inch2cm(double dist)
  */
 double _cm2inch(double dist)
 {
+	if (dist < 0)
+	{
+		printf("Distance cannot be negative!\n");
+		return (-1);
+	}
 	return (dist * 2.54);
 }
 /**
@@ -43,6 +63,11 @@ double _cm2inch(double dist)
  */
 double _kg2pound(double weight)
 {
+	if (weight < 0)
+	{
+		printf("Weight cannot be negative!\n");
+		return (-1);
+	}
 	return (weight * 2.2046);
 }
 /**
@@ -52,6 +77,11 @@ double _kg2pound(double weight)
  */
 double _pound2kg(double weight)
 {
+	if (weight < 0)
+	{
+		printf("Weight cannot be negative!\n");
+		return (-1);
+	}
 	return (weight * 0.4536);
 }
 /**
@@ -61,6 +91,11 @@ double _pound2kg(double weight)
  */
 double _lts2qrt(double vol)
 {
+	if (vol < 0)
+	{
+		printf("Volume cannot be negative!\n");
+		return (-1);
+	}
 	return (vol * 1.0567);
 }
 /**
@@ -70,5 +105,10 @@ double _lts2qrt(double vol)
  */
 double _qrt2lts(double vol)
 {
+	if (vol < 0)
+	{
+		printf("Volume cannot be negative!\n");
+		return (-1);
+	}
 	return (vol * 0.9464);
 }

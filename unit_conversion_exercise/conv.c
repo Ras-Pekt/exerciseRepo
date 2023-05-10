@@ -1,10 +1,14 @@
 #include "main.h"
 
-int main()
+/**
+ * main - Entry point
+ * Return: 0 on success
+ */
+int main(void)
 {
 	int input = 0;
 	double value = 0.0;
-	
+
 	while (1)
 	{
 		printf("Press:\n"

@@ -5,9 +5,18 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+/**
+ * struct conv - Define a new type conv_t for the type struct conv
+ * @n: First member
+ * @s1: Second member
+ * @s2: Third member
+ * @func: Forth member
+ */
 typedef struct conv
 {
 	int n;
+	char *s1;
+	char *s2;
 	double (*func)(double);
 } conv_t;
 
