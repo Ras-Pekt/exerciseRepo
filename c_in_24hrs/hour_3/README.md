@@ -22,4 +22,4 @@ This directory contains solutions to the coding questions of **Hour 3, Learning 
 - [Exer_4](hr3ex4.c) - Write a C function that can perform a multiplication of two integers and return the calculated result.
 - [Exer_5](hr3ex5.c) - Write a C program that calls the C function you just wrote in the above exercise to calculate the multiplication of 3 times 5 and then print out the return value from the function on the screen.
 
-**DISCLAIMER: Some of the code is intentionally wrong, to find out common coding mistakes, learn to interpret error messages and practice debugging code from such error messages**
+**NOTE: Some of the code is intentionally wrong, to find out common coding mistakes, learn to interpret error messages and practice debugging code from such error messages**
