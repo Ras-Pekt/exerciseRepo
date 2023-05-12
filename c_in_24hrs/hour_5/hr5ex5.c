@@ -14,6 +14,6 @@ main()
  * warning: implicit declaration of function ‘getchar’ [-Wimplicit-function-declaration]
  * warning: implicit declaration of function ‘putchar’ [-Wimplicit-function-declaration]
  *
- * To fix the code, main's return value has to be include
- * and the header file, #include <stdio.h> has to be include
+ * To fix the code, main's return value has to be included
+ * and the header file, #include <stdio.h> has to be included
  */

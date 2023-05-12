@@ -1,3 +1,6 @@
+# HOUR_5
+This directory contains solutions to the coding questions of **Hour 5, Handling Standard Input and Output**, of **Sam's Teach Yourself C in 24 Hours**. The questions are as follows:
+
 - [Exer_1](hr5ex1.c) - Write a program to put the characters B, y, and e together on the screen.
 - [Exer_2](hr5ex2.c) - Display the two numbers 123 and 123.456 and align them at the left edge of the field.
 - [Exer_3](hr5ex3.c) - Given three integers, 15, 150, and 1500, write a program that prints the integers on the screen in the hex format.
