@@ -1,4 +1,4 @@
-# A or loop that iterates over the names list to create a usernames list
+# A for loop that iterates over the names list to create a usernames list
 # To create a username for each name, make everything lowercase and replace spaces with underscores
 
 names = ["Joey Tribbiani", "Monica Geller", "Chandler Bing", "Phoebe Buffay"]

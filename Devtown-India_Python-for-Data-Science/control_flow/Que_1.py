@@ -1,3 +1,4 @@
+# An if statement that lets a student know which of these grades they got based on the number they got in exams
 
 marks = 91  # use this input to make your submission
 
