@@ -1,0 +1,16 @@
+#!/bin/bash
+# adds, commits and pushes to github
+
+if [ -d .git ]
+then
+	if [ $# -eq 0 ]
+	then
+		echo "Usage: push <commit message>"
+	else
+		git add .
+		git commit -m "$*"
+		git push
+	fi
+else
+	echo "Not a git repository"
+fi
