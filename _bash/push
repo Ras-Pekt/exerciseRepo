@@ -1,0 +1,16 @@
+#!/bin/bash
+# adds, commits and pushes to github
+
+if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]
+then
+	if [ $# -eq 0 ]
+	then
+		echo "Usage: push <commit message>"
+	else
+		git add .
+		git commit -m "$*"
+		git push
+	fi
+else
+	echo "Not a git repository"
+fi
