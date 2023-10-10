@@ -38,14 +38,23 @@ def print_category():
         response = requests.get(value).text
         soup = bs(response, 'lxml')
 
-        for article in soup.find_all('li', class_='infinite-post'):
-            article_title = article.h2.text
-            article_summary = article.p.text
-            article_link = article.find('a')['href']
+        number_of_pages = soup.find('div', class_='pagination').find('span').text
+        number_of_pages = number_of_pages.split()[3]
 
-            print(f"{article_title}\n{article_summary}\n{article_link}\n")
+        for page_number in range(1, int(number_of_pages) + 1):
+            url = f"{value}page/{page_number}/"
 
-            csv_writer.writerow([key.upper(), article_title, article_summary, article_link])
+            response = requests.get(url).text
+            soup = bs(response, 'lxml')
+
+            for article in soup.find_all('li', class_='infinite-post'):
+                article_title = article.h2.text
+                article_summary = article.p.text
+                article_link = article.find('a')['href']
+
+                print(f"{article_title}\n{article_summary}\n{article_link}\n")
+
+                csv_writer.writerow([key.upper(), article_title, article_summary, article_link])
 
 print_category()
 csv_file.close()
