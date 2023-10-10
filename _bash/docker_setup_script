@@ -1,0 +1,56 @@
+#!/bin/bash
+
+set -e
+
+if [ "$EUID" -ne 0 ]
+then
+	echo "Please run as root"
+  	exit
+fi
+
+if ! command -v docker &>/dev/null
+then
+	echo "updating packages"
+	apt update
+
+	# install prerequisite packages which let apt use packages over HTTPS
+	echo "installing prerequisite packages which let apt use packages over HTTPS"
+	apt install apt-transport-https ca-certificates curl software-properties-common
+
+	# add the GPG key for the official Docker repository
+	echo "adding the GPG key for the official Docker repository"
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+	# add Docker repository to APT sources
+	echo "adding Docker repository to APT sources"
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+	echo "updating packages"
+	apt update
+
+	# ensure install from the Docker repo instead of the default Ubuntu repo
+	echo "ensuring install from the Docker repo instead of the default Ubuntu repo"
+	apt-cache policy docker-ce
+
+	# install Docker
+	echo "installing Docker"
+	apt install docker-ce -y
+
+	# check Docker is running
+	echo "checking Docker is running"
+	systemctl status docker
+
+	# add your username to the docker group
+	echo "adding username to the docker group"
+	usermod -aG docker ${USER}
+
+	echo "Please log out and log in again to apply group membership."
+
+	echo "Docker installation successfully completed"
+else
+	echo "Docker is already installed."
+fi
+
+echo "To view all available subcommands, type: 'docker'"
+echo "To view the options available to a specific command, type: 'docker docker-subcommand --help'"
+echo "To view system-wide information about Docker, use: 'docker info'"
