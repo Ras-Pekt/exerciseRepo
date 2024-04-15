@@ -12,7 +12,7 @@ def root_path(folder_name):
     Returns:
         str: The root path of the folder
     """
-    root_path = "/home/ras-pekt/Desktop/notes"
+    root_path = os.path.dirname(os.path.realpath(__file__))
     return os.path.join(root_path, folder_name)
 
 folders = {
