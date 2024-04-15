@@ -1,0 +1,92 @@
+#!/usr/bin/python3
+
+import os
+import shutil
+
+def root_path(folder_name):
+    """
+    Returns the root path of the folder
+
+    Args:
+        folder_name (str): The name of the folder
+    Returns:
+        str: The root path of the folder
+    """
+    root_path = "/home/ras-pekt/Desktop/notes"
+    return os.path.join(root_path, folder_name)
+
+folders = {
+    ".txt": [
+            "text_files",
+            root_path("text_files")
+        ],
+    ".py": [
+            "python_files",
+            root_path("python_files")
+        ],
+    ".pdf": [
+            "pdf_files",
+            root_path("pdf_files")
+        ],
+    ".mhtml": [
+            "web_files",
+            root_path("web_files")
+        ],
+    ".json": [
+            "json_files",
+            root_path("json_files")
+        ],
+    ".c": [
+            "c_files",
+            root_path("c_files")
+        ],
+    ".js": [
+            "javascript_files",
+            root_path("javascript_files")
+        ],
+    ".ts": [
+            "javascript_files",
+            root_path("javascript_files")
+        ],
+    ".docx": [
+            "word_files",
+            root_path("word_files")
+        ],
+    ".sh": [
+            "bash_files",
+            root_path("bash_files")
+        ],
+}
+
+directories = [directory for directory in os.listdir() if os.path.isdir(directory)]
+
+for key in folders:
+    if folders[key][0] not in directories:
+        os.mkdir(folders[key][0])
+
+def move_file(path, file):
+    """
+    Moves the file to the appropriate folder
+
+    Args:
+        path (str): The path of the file
+        file (str): The name of the file
+    """
+    _, ext = os.path.splitext(file)
+
+    if ext in folders:
+        if folders[ext][1] == path:
+            return
+
+        src = os.path.join(path, file)
+        dest = folders[ext][1]
+
+        try:
+            shutil.move(src, dest)
+        except:
+            print(f"A file with the same name [{file}] already exists in {dest}")
+
+for path, dirname, file_list in os.walk(os.getcwd()):
+    for file in file_list:
+        if file:
+            move_file(path, file)
